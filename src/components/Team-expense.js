@@ -3,8 +3,6 @@ import { useEffect, useRef } from 'react';
 
 export default function TeamExpense(props) {
     const { formChange, totalMembers, setShowExpensePage } = props;
-    console.log(totalMembers)
-    console.log(setShowExpensePage)
     const focusPoint = useRef(null);
     useEffect(() => {
         focusPoint.current.focus();
