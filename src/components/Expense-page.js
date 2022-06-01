@@ -65,10 +65,11 @@ export default function Expense({ totalMembers, totalMemberNum = +totalMembers }
     }, [paymentData])
 
     if (members) {
-         return (
+        return (
             <div className="expense-box">
-                {paymentData ? <AccordionComp paymentData={paymentData}/> :
-                    <><h3>Enter Your Team Members Expenses </h3>
+                {paymentData ? <AccordionComp paymentData={paymentData} /> :
+                    <>
+                        <div className='expensesHeader'><h3>Enter Your Team Members Expenses </h3></div>
                         <form>
                             <span></span>
                             <span></span>
@@ -86,33 +87,33 @@ export default function Expense({ totalMembers, totalMemberNum = +totalMembers }
                                     </div>
                                 </div>
                             })}
-
-
-                            <a href="#" onClick={calculate}>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                = Calculate
-                            </a>
-                            <a href="#" className='addMemberButton'>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                + Add Member
-                            </a>
-                            <a href="#" className='resetButton'>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                Cancel and Reset
-                            </a>
+                            <div className='buttonDiv'>
+                                <a href="#" onClick={calculate}>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    = Calculate
+                                </a>
+                                <a href="#" className='addMemberButton'>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    + Add Member
+                                </a>
+                                <a href="#" className='resetButton'>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    Cancel and Reset
+                                </a>
+                            </div>
                         </form>
                     </>
                 }
-            </div>
+            </div >
         )
     }
 }
