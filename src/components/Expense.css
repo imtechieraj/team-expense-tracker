@@ -1,26 +1,25 @@
 .expense-box {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 800px;
-    padding: 40px;
-    transform: translate(-50%, -50%);
     background: rgba(0, 0, 0, .5);
-    box-sizing: border-box;
-    box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
     border-radius: 10px;
+    box-shadow: 0 15px 25pxrgba(0, 0, 0, .6);
+    box-sizing: border-box;
     height: 628px;
     overflow: auto;
+    padding: 0px 40px 40px;
+    width: 800px;
+    margin: auto;
+    position: relative;
+    display: block;
+    transform: translateY(20%);
 }
 
 .expense-box h3 {
-    margin: 0 0 30px;
-    padding: 0;
-    color: #fff;
-    text-align: center;
     border: 1px solid #03e9f4;
-    margin-bottom: 45px;
-    padding:15px;
+    color: #fff;
+    margin: 0 0 45px;
+    padding: 15px;
+    text-align: center;
+    background-color: black;
 }
 
 .expense-box .team-user-box {
@@ -176,9 +175,9 @@ a.disabled {
     color: #ccc;
 }
 
-.memberName{
-    position:relative;
-    margin-bottom:40px;
+.memberName {
+    position: relative;
+    margin-bottom: 40px;
 }
 
 .memberField {
@@ -191,15 +190,44 @@ a.disabled {
     width: 100%;
 }
 
-form{
+form {
     margin-left: 45px
 }
 
-.addMemberButton{
-    margin-left: 160px;
+.calculateButton {
+    margin-left: 340px;
 }
 
-.resetButton{
+.resetButton {
     width: 600px;
     text-align: center;
+}
+
+
+
+.expensesHeader {
+    position: sticky;
+    top: 0;
+    background-color: #000;
+    z-index: 9999;
+    padding-top: 40px;
+}
+
+@media only screen and (max-width: 600px) {
+    .expense-box {
+        width: 100%;
+    }
+
+    .calculateButton {
+        margin-left: 0px;
+    }
+
+    .resetButton {
+        width: 600px;
+        text-align: left;
+    }
+
+    .expense-box {
+        padding: 0px 31px 37px;
+    }
 }

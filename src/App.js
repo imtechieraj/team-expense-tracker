@@ -7,6 +7,11 @@ function App() {
   const [totalMembers, setTotalMembers] = useState(null);
   const [showExpensePage, setShowExpensePage] = useState(false);
 
+  const resetApp=()=>{
+    setTotalMembers(null)
+    setShowExpensePage(false)
+  }
+
   const formChange = (e) => {
     if (e.target.value) {
       return setTotalMembers(e.target.value);
@@ -16,7 +21,8 @@ function App() {
   const props = {
     formChange,
     totalMembers,
-    setShowExpensePage
+    setShowExpensePage,
+    resetApp
   }
   if (showExpensePage) {
     return <Expense {...props} />

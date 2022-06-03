@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import AccordionComp from './Accordion';
 const shortid = require('shortid');
 
-export default function Expense({ totalMembers, totalMemberNum = +totalMembers }) {
+export default function Expense({ totalMembers, totalMemberNum = +totalMembers,resetApp }) {
     const [members, setMember] = useState(null);
     const [paymentData, setPaymentData] = useState(null);
 
@@ -28,8 +28,13 @@ export default function Expense({ totalMembers, totalMemberNum = +totalMembers }
         };
         return setMember(tem_arr)
     }, []);
-
+    const validation = () => {
+        return !members.every((_item) => 3 === Object.keys(_item).length)
+    }
     const calculate = () => {
+        if (validation()) {
+            return alert('Please fill all the details')
+        }
         let setPayment = members.map((data) => {
             let getPayment = parseInt(data.expense) / members.length;
             data.payment = getPayment;
@@ -60,6 +65,12 @@ export default function Expense({ totalMembers, totalMemberNum = +totalMembers }
         setPaymentData(final_result);
     }
 
+    const resetState=()=>{
+        setMember(null)
+        setPaymentData(null)
+        resetApp()
+    }
+
     useEffect(() => {
         console.log(paymentData)
     }, [paymentData])
@@ -67,7 +78,7 @@ export default function Expense({ totalMembers, totalMemberNum = +totalMembers }
     if (members) {
         return (
             <div className="expense-box">
-                {paymentData ? <AccordionComp paymentData={paymentData} /> :
+                {paymentData ? <AccordionComp paymentData={paymentData} resetState={resetState}/> :
                     <>
                         <div className='expensesHeader'><h3>Enter Your Team Members Expenses </h3></div>
                         <form>
@@ -76,8 +87,8 @@ export default function Expense({ totalMembers, totalMemberNum = +totalMembers }
                             <span></span>
                             <span></span>
                             {members.map((data) => {
-                                return <div className="team-user-box" key={data.user_id}>
-                                    <div className='memberField'>
+                                return <div className="team-user-box" >
+                                    <div className='memberField' key={data.user_id}>
                                         <label className='memberLabel'><span>Enter your Name:</span></label>
                                         <input className='memberInput' type="text" name="memberName" required="" onChange={(e) => changeMember(e, data.user_id)} />
                                     </div>
@@ -87,30 +98,22 @@ export default function Expense({ totalMembers, totalMemberNum = +totalMembers }
                                     </div>
                                 </div>
                             })}
-                            <div className='buttonDiv'>
-                                <a href="#" onClick={calculate}>
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                    = Calculate
-                                </a>
-                                <a href="#" className='addMemberButton'>
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                    + Add Member
-                                </a>
-                                <a href="#" className='resetButton'>
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                    Cancel and Reset
-                                </a>
-                            </div>
+                            <a href="#" onClick={calculate} className="calculateButton">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                = Calculate
+                            </a>
+                            <a href="#" className='resetButton' onClick={resetState}>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                Cancel and Reset
+                            </a>
                         </form>
+
                     </>
                 }
             </div >

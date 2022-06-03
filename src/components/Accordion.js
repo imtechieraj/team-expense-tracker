@@ -1,6 +1,6 @@
 import './Accordian.css';
 
-const AccordionComp = ({ paymentData }) => {
+const AccordionComp = ({ paymentData, resetState }) => {
     console.log(paymentData)
     return (
         <nav className="accordion arrows">
@@ -18,7 +18,7 @@ const AccordionComp = ({ paymentData }) => {
                                 {_item.final_result.map((_item2) => {
                                     if (_item2.type === "payment") {
                                         return <ol key={_item2.user_id}>{_item2.memberName}: You have to pay {Math.abs(_item2.final_settlement)} </ol>
-                                    }else{
+                                    } else {
                                         return <ol key={_item2.user_id}>{_item2.memberName}: You have to get {_item2.final_settlement} </ol>
                                     }
                                 })}
@@ -28,6 +28,15 @@ const AccordionComp = ({ paymentData }) => {
                 </>
                 )
             })}
+            <form>
+                <a href="#" className='resetButton' onClick={resetState}>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Cancel and Reset
+                </a>
+            </form>
         </nav>
     )
 }

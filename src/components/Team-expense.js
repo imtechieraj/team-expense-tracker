@@ -16,7 +16,7 @@ export default function TeamExpense(props) {
                 <span></span>
                 <span></span>
                 <div className="user-box">
-                    <input type="number" name="" required="" ref={focusPoint} />
+                    <input type="number" name="" required="" min="2" ref={focusPoint} />
                     <label>Total Team Members</label>
                 </div>
                 <a href="#" className={!totalMembers ? 'disabled' : ''} onClick={() => setShowExpensePage(true)}>
