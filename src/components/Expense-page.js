@@ -51,7 +51,9 @@ export default function Expense({ totalMembers, totalMemberNum = +totalMembers,r
                     let amount_result = setPayment[j].payment - setPayment[i].payment;
                     if (amount_result > 0) {
                         obj.type = "settlement"
-                    } else {
+                    } else if(amount_result===0){
+                        obj.type="equal"
+                    }else {
                         obj.type = "payment"
                     }
                     obj.final_settlement = amount_result;

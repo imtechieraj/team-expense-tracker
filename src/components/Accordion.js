@@ -17,9 +17,11 @@ const AccordionComp = ({ paymentData, resetState }) => {
                             <ul>
                                 {_item.final_result.map((_item2) => {
                                     if (_item2.type === "payment") {
-                                        return <ol key={_item2.user_id}>{_item2.memberName}: You have to pay {Math.abs(_item2.final_settlement)} </ol>
+                                        return <ol key={_item2.user_id}>{_item2.memberName} ought to pay {Math.abs(_item2.final_settlement)} </ol>
+                                    } else if (_item2.type === "settlement") {
+                                        return <ol key={_item2.user_id}>{_item2.memberName} ought to recive {_item2.final_settlement} </ol>
                                     } else {
-                                        return <ol key={_item2.user_id}>{_item2.memberName}: You have to get {_item2.final_settlement} </ol>
+                                        return <ol key={_item2.user_id}>{_item2.memberName}: NONE</ol>
                                     }
                                 })}
                             </ul>
