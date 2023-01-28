@@ -1,6 +1,6 @@
 #  Team Expense Tracker
 
-This project was created with [Rajkumar](https://github.com/thisisrajkumar).
+This project was created with [Rajkumar](https://github.com/imtechieraj).
 
  I got the idea of developing this application while we went for trip to varkala as friends,  there we beared our expenses together for our food and stay. Later, we thought to share the money among us but at that moment we felt the difficulty of doing the calculation. During that instant I got the idea of making this application. 
 
@@ -23,4 +23,4 @@ Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
 
-### Live Demo (https://thisisrajkumar.github.io/team-expense-tracker).
+### Live Demo (https://imtechieraj.github.io/team-expense-tracker).
